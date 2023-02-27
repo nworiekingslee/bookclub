@@ -1,0 +1,70 @@
+.page-hero {
+  position: relative;
+  min-height: 40rem;
+  background-color: var(--stroke);
+  color: var(--white);
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+
+  border-radius: 1rem;
+  margin: 2rem;
+}
+
+.page-hero .text-wrap {
+  max-width: 42rem;
+}
+
+.page-hero .text-wrap h3 {
+  font-size: 3.4rem;
+  margin-bottom: 1rem;
+}
+
+.page-hero .text-wrap p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.page-hero .search-box-wrap {
+  height: 6rem;
+  min-width: 100%;
+  position: absolute;
+  bottom: -3rem;
+}
+
+.page-hero .search-box-wrap .search-box {
+  background-color: var(--white);
+  max-width: 40rem;
+  margin: auto;
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+  border: var(--border);
+  color: var(--stroke);
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  -ms-flex-align: center;
+}
+
+.page-hero .search-box-wrap .search-box .search-input {
+  text-align: left;
+  padding: 2rem;
+  font-size: 1.2rem;
+  width: 100%;
+}
+
+.page-hero .search-box-wrap .search-box .filter-wrap {
+  text-align: left;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  width: 8rem;
+  border-left: 1px solid var(--dark);
+  margin: 1rem 0;
+}
