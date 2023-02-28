@@ -1,7 +1,10 @@
 .page-hero {
   position: relative;
-  min-height: 40rem;
-  background-color: var(--stroke);
+  min-height: 34rem;
+
+  background-color: bisque;
+  background-repeat: none;
+  background-size: cover;
   color: var(--white);
 
   display: -webkit-box;
@@ -12,12 +15,60 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
 
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   margin: 2rem;
 }
 
+@media only screen and (max-width: 39em) {
+  .page-hero {
+    margin: 0 0 2rem;
+    border-radius: 0;
+  }
+}
+
+.page-hero .video-wrap > video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  object-fit: cover;
+  border-radius: 0.5rem;
+
+  height: 100%;
+  width: 100%;
+}
+
+@media only screen and (max-width: 39em) {
+  .page-hero .video-wrap > video,
+  .page-hero .text-wrap {
+    border-radius: 0;
+  }
+
+  .page-hero .text-wrap h3 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+}
+
 .page-hero .text-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.499), rgba(0, 0, 0, 0.4));
+
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+}
+
+.page-hero .text-wrap > div {
   max-width: 42rem;
+  margin: auto;
 }
 
 .page-hero .text-wrap h3 {

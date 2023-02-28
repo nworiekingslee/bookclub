@@ -1,0 +1,55 @@
+.booklist-section .booklist-wrapper {
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, auto));
+  list-style: none;
+  max-width: 110rem;
+}
+
+@media only screen and (max-width: 75em) {
+  .booklist-section .booklist-wrapper {
+    grid-template-columns: repeat(auto-fill, minmax(20rem, auto));
+    grid-gap: 2rem;
+    padding: 0 2rem;
+  }
+}
+
+@media only screen and (max-width: 29em) {
+  .booklist-section .booklist-wrapper {
+    grid-template-columns: repeat(auto-fill, minmax(14rem, auto));
+    grid-gap: 1rem;
+    padding: 0 1rem;
+  }
+}
+
+.booklist-section .booklist-wrapper li {
+  height: auto;
+}
+
+.booklist-section .booklist-wrapper li > img {
+  width: 100%;
+  height: auto;
+}
+
+.action-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--dark);
+  padding: 0.1rem;
+}
+
+.action-bar > .action-status {
+  padding: 1rem;
+  width: 100%;
+  text-align: left;
+  color: var(--white);
+  background-color: brown;
+}
+
+.action-bar > .action-dropdown {
+  padding: 1rem 1.5rem;
+  text-align: left;
+}
