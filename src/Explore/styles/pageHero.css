@@ -1,6 +1,6 @@
 .page-hero {
   position: relative;
-  min-height: 34rem;
+  /* min-height: 34rem; */
 
   background-color: bisque;
   background-repeat: none;
@@ -17,6 +17,14 @@
 
   border-radius: 0.5rem;
   margin: 2rem;
+}
+
+.page-hero.wrap-sm {
+  min-height: 14rem;
+}
+
+.page-hero.wrap-md {
+  min-height: 34rem;
 }
 
 @media only screen and (max-width: 39em) {
@@ -66,6 +74,12 @@
   border-radius: 0.5rem;
 }
 
+.page-hero .text-wrap.shelf {
+  background-color: red;
+  background: none;
+  color: var(--reading);
+}
+
 .page-hero .text-wrap > div {
   max-width: 42rem;
   margin: auto;
@@ -110,13 +124,42 @@
   padding: 2rem;
   font-size: 1.2rem;
   width: 100%;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.page-hero .search-box-wrap .search-box .search-input img {
+  height: 1.6rem;
+  margin-right: 0.5rem;
+  width: auto;
+  opacity: 0.8;
+}
+
+.page-hero .search-box-wrap .search-box .search-input input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--reading);
+  width: 100%;
 }
 
 .page-hero .search-box-wrap .search-box .filter-wrap {
   text-align: left;
   padding: 1rem 2rem;
   font-size: 1.2rem;
-  width: 8rem;
+  min-width: 8rem;
   border-left: 1px solid var(--dark);
   margin: 1rem 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  cursor: pointer;
+}
+
+.page-hero .search-box-wrap .search-box .filter-wrap img {
+  margin: 0 1rem;
 }

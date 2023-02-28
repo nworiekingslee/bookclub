@@ -95,16 +95,3 @@
   max-width: 12rem;
   margin: 0 auto;
 }
-
-/* Style the stars here (Todo: Take this out as a component) */
-.rating-component {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: nowrap;
-  margin-top: 1rem;
-}
-
-.rating-component img {
-  cursor: pointer;
-}

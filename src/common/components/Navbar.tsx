@@ -1,4 +1,5 @@
-import "../styles/navbar.css";
+import "../styles/Navbar.css";
+import Button from "./Button";
 
 function Navbar() {
   return (
@@ -11,7 +12,7 @@ function Navbar() {
         <li>About App</li>
       </ul>
 
-      <button>Register</button>
+      <Button />
     </div>
   );
 }

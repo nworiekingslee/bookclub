@@ -1,0 +1,19 @@
+.rating-component {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-top: 0.5rem;
+}
+
+.rating-component.small {
+}
+
+.rating-component.big img {
+  height: 2.4rem;
+  width: 2.4rem;
+}
+
+.rating-component img {
+  cursor: pointer;
+}
