@@ -6,6 +6,7 @@
   grid-template-columns: repeat(auto-fill, minmax(16rem, auto));
   list-style: none;
   max-width: 110rem;
+  margin-top: 8rem;
 }
 
 @media only screen and (max-width: 75em) {
@@ -24,32 +25,86 @@
   }
 }
 
-.booklist-section .booklist-wrapper li {
+.booklist-section .booklist-wrapper .book-item {
   height: auto;
+  display: flex;
+  flex-direction: column;
+  border: none;
+
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
 }
 
-.booklist-section .booklist-wrapper li > img {
+.booklist-section .booklist-wrapper .book-item > img {
   width: 100%;
   height: auto;
 }
 
-.action-bar {
+.booklist-section .booklist-wrapper .book-item .book-hover-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+
+  opacity: 0;
+  transform: translateY(24rem);
+  transition: all 0.3s ease;
+
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 20%, #14181f 86.46%);
+
+  display: flex;
+  align-items: flex-end;
+}
+
+.booklist-section .booklist-wrapper .book-item:hover .book-hover-overlay {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.booklist-section
+  .booklist-wrapper
+  .book-item
+  .book-hover-overlay
+  .overlay-content {
+  color: white;
+  width: 100%;
+  padding: 1rem;
+  position: absolute;
+  bottom: 5rem;
+}
+
+.booklist-section
+  .booklist-wrapper
+  .book-item
+  .book-hover-overlay
+  .overlay-content
+  p {
+  font-size: 1.2rem;
+  font-weight: medium;
+  margin-top: 2rem;
+}
+
+.booklist-section
+  .booklist-wrapper
+  .book-item
+  .book-hover-overlay
+  .overlay-content
+  .star-wrap {
+  max-width: 12rem;
+  margin: 0 auto;
+}
+
+/* Style the stars here (Todo: Take this out as a component) */
+.rating-component {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--dark);
-  padding: 0.1rem;
+  flex-wrap: nowrap;
+  margin-top: 1rem;
 }
 
-.action-bar > .action-status {
-  padding: 1rem;
-  width: 100%;
-  text-align: left;
-  color: var(--white);
-  background-color: brown;
-}
-
-.action-bar > .action-dropdown {
-  padding: 1rem 1.5rem;
-  text-align: left;
+.rating-component img {
+  cursor: pointer;
 }
