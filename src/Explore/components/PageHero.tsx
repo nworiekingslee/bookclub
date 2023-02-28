@@ -1,5 +1,7 @@
 import "../styles/pageHero.css";
 import video from "../assets/videos/hero.mp4";
+import chevron from "../../common/assets/arrow-up.svg";
+import searchIcon from "../../common/assets/search.svg";
 
 function PageHero() {
   return (
@@ -24,11 +26,23 @@ function PageHero() {
       <div className="search-box-wrap">
         <div className="search-box">
           <div className="search-input">
-            <p>Search</p>
+            {/* <div className="search-box"> */}
+            <label htmlFor="search" className="label">
+              <figure className="img-box">
+                <img src={searchIcon} alt="" className="img" />
+              </figure>
+            </label>
+            <input
+              placeholder="search"
+              type="text"
+              name="search"
+              id="search"
+              className="input"
+            />
+            {/* </div> */}
           </div>
           <div className="filter-wrap">
-            {" "}
-            <p>Title</p>{" "}
+            <p>Title</p> <img src={chevron} alt="" />
           </div>
         </div>
       </div>

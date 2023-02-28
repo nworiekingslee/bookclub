@@ -1,0 +1,11 @@
+.rating-component {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-top: 1rem;
+}
+
+.rating-component img {
+  cursor: pointer;
+}
