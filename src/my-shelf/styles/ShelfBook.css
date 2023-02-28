@@ -1,0 +1,62 @@
+.shelf-list-container {
+  margin-top: 8rem;
+}
+
+.shelf-list-item {
+  max-width: 70rem;
+  margin: 0 auto;
+  border-bottom: var(--border);
+  /* border-color: var(--stroke); */
+  padding: 1rem 0;
+
+  position: relative;
+}
+
+.shelf-list-item .close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  cursor: pointer;
+}
+
+.shelf-list-item .shelf-book-wrap {
+  display: flex;
+}
+
+.shelf-list-item .shelf-book-wrap > img {
+  width: 11rem;
+  height: auto;
+}
+
+.shelf-list-item .shelf-book-wrap .shelf-book-desc {
+  min-width: 30rem;
+  /* width: 100%; */
+  margin-left: 1rem;
+  text-align: left;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.shelf-list-item .shelf-book-wrap .shelf-book-desc .title {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+}
+
+.shelf-list-item .shelf-book-wrap .shelf-book-desc .author {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+}
+
+.shelf-list-item .shelf-book-wrap .shelf-book-desc .review-wrap {
+  width: 15rem;
+
+  margin-bottom: 2rem;
+}
+
+.shelf-list-item .shelf-book-wrap .shelf-book-desc .review-wrap p {
+  margin: 0;
+  font-weight: bold;
+  font-size: 0.8rem;
+}

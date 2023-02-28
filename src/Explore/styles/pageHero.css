@@ -1,6 +1,6 @@
 .page-hero {
   position: relative;
-  min-height: 34rem;
+  /* min-height: 34rem; */
 
   background-color: bisque;
   background-repeat: none;
@@ -17,6 +17,14 @@
 
   border-radius: 0.5rem;
   margin: 2rem;
+}
+
+.page-hero.wrap-sm {
+  min-height: 14rem;
+}
+
+.page-hero.wrap-md {
+  min-height: 34rem;
 }
 
 @media only screen and (max-width: 39em) {
@@ -64,6 +72,12 @@
   display: flex;
   align-items: center;
   border-radius: 0.5rem;
+}
+
+.page-hero .text-wrap.shelf {
+  background-color: red;
+  background: none;
+  color: var(--reading);
 }
 
 .page-hero .text-wrap > div {

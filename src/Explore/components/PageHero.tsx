@@ -3,22 +3,33 @@ import video from "../assets/videos/hero.mp4";
 import chevron from "../../common/assets/arrow-up.svg";
 import searchIcon from "../../common/assets/search.svg";
 
-function PageHero() {
-  return (
-    <div className="page-hero">
-      <div className="video-wrap">
-        <video autoPlay muted loop id="heroVideo">
-          <source src={video} type="video/mp4" />
-          Sorry, your browser doesn't support videos.
-        </video>
-      </div>
+type PageHeroProps = {
+  isShelf?: boolean;
+};
 
-      <div className="text-wrap">
+function PageHero({ isShelf }: PageHeroProps) {
+  return (
+    <div className={`${!isShelf ? "wrap-md" : "wrap-sm"} page-hero`}>
+      {!isShelf && (
+        <div className="video-wrap">
+          <video autoPlay muted loop id="heroVideo">
+            <source src={video} type="video/mp4" />
+            Sorry, your browser doesn't support videos.
+          </video>
+        </div>
+      )}
+
+      <div className={`${isShelf ? "shelf" : ""} text-wrap`}>
         <div>
-          <h3>Explore the biggest book collections in Nigeria</h3>
+          <h3>
+            {isShelf
+              ? "Welcome back Kingsley"
+              : "Explore the biggest book collections in Nigeria"}
+          </h3>
           <p>
-            Millions of writers and publishers around the world showcase their
-            work on BookClub - the home to the world’s best books.
+            {isShelf
+              ? "Browse your shelf and select a book to read today"
+              : "Millions of writers and publishers around the world showcase their work on BookClub - the home to the world’s best books."}
           </p>
         </div>
       </div>
