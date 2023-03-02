@@ -9,7 +9,7 @@ function Navbar() {
       {/* <img src={} alt="logo" /> */}
       <ul>
         <p onClick={() => navigate("/")}>LOGO</p>
-        <li onClick={() => navigate("/")}>Explore</li>
+        <li onClick={() => navigate("/explore")}>Explore</li>
         <li onClick={() => navigate("/shelf")}>Myshelf</li>
         <li>About App</li>
       </ul>

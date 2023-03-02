@@ -25,6 +25,7 @@
   padding: 1rem;
   cursor: pointer;
   transition: 0.3s all ease;
+  font-weight: 600;
 }
 
 .navbar > ul > li:hover {
