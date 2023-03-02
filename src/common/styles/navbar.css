@@ -21,6 +21,12 @@
   -ms-flex-align: center;
 }
 
-.navbar > ul > li {
-  padding: 0 1rem;
+.navbar > ul > * {
+  padding: 1rem;
+  cursor: pointer;
+  transition: 0.3s all ease;
+}
+
+.navbar > ul > li:hover {
+  transform: translateY(-4px);
 }

@@ -7,7 +7,8 @@
   margin: 0 auto;
   border-bottom: var(--border);
   /* border-color: var(--stroke); */
-  padding: 1rem 0;
+  padding: 1rem;
+  margin-bottom: 2rem;
 
   position: relative;
 }
@@ -17,6 +18,8 @@
   top: 2rem;
   right: 2rem;
   cursor: pointer;
+  height: 20rem;
+  width: auto;
 }
 
 .shelf-list-item .shelf-book-wrap {

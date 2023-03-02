@@ -1,14 +1,16 @@
 import "../styles/Navbar.css";
 import Button from "./Button";
+import { useNavigate } from "react-router";
 
 function Navbar() {
+  const navigate = useNavigate();
   return (
     <div className="navbar">
       {/* <img src={} alt="logo" /> */}
       <ul>
-        <li>LOGO</li>
-        <li>Explore</li>
-        <li>Myshelf</li>
+        <p onClick={() => navigate("/")}>LOGO</p>
+        <li onClick={() => navigate("/")}>Explore</li>
+        <li onClick={() => navigate("/shelf")}>Myshelf</li>
         <li>About App</li>
       </ul>
 
