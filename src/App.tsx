@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Explore />} />
-        <Route path="/explore" element={<Navigate to="/" />} />
+        <Route path="/explore" element={<Navigate to="/" replace={true} />} />
         <Route path="/shelf" element={<MyShelf />} />
         <Route path="*" element={<div>Not found</div>} />
       </Routes>
