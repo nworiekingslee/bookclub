@@ -2,6 +2,7 @@ import Navbar from "../common/components/Navbar";
 import PageHero from "./components/PageHero";
 import "./styles/bookGrid.css";
 import BookItem from "./components/BookItem";
+import { books } from "../common/books";
 
 function Explore() {
   return (
@@ -10,21 +11,9 @@ function Explore() {
       <PageHero />
       <div className="booklist-section">
         <ol className="booklist-wrapper">
-          <BookItem />
-          <BookItem />
-          <BookItem />
-          <BookItem />
-          <BookItem />
-          <BookItem />
-          <BookItem />
-          <BookItem />
-          <BookItem />
-          <BookItem />
-          <BookItem />
-          <BookItem />
-          <BookItem />
-          <BookItem />
-          <BookItem />
+          {books.map((book) => (
+            <BookItem book={book} />
+          ))}
         </ol>
       </div>
     </div>

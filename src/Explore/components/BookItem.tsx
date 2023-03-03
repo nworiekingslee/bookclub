@@ -1,8 +1,22 @@
 import BookActionBar from "../../common/components/BookActionBar";
 import Rate from "../../common/components/Rate";
-import bookCover from "../assets/book-cover.png";
+// import bookCover from "../assets/book-cover.png";
 
-function BookItem() {
+type BookItemProps = {
+  book?: {
+    image: string;
+    title: string;
+    author: string;
+    desc: string;
+    category: string[];
+    rating: number;
+    myRate: null | number;
+    "total-ratings": number;
+    status: string | null;
+  };
+};
+
+function BookItem({ book }: BookItemProps) {
   return (
     <li className="book-item">
       <div className="book-hover-overlay">
@@ -13,7 +27,7 @@ function BookItem() {
           </div>
         </div>
       </div>
-      <img src={bookCover} alt="" />
+      <img src={book?.image} alt="" />
       <BookActionBar />
     </li>
   );
