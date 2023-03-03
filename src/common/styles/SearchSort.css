@@ -1,0 +1,110 @@
+.page-hero .search-box-wrap {
+  height: 6rem;
+  min-width: 100%;
+  position: absolute;
+  bottom: -3rem;
+  padding: 0 1rem !important;
+  color: var(--reading) !important;
+}
+
+.page-hero .search-box-wrap .search-box {
+  background-color: var(--white);
+  max-width: 40rem;
+  margin: auto;
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+  border: var(--border);
+  /* color: var(--stroke); */
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  -ms-flex-align: center;
+}
+
+.page-hero .search-box-wrap .search-box .search-input {
+  text-align: left;
+  padding: 2rem;
+  font-size: 1.2rem;
+  width: 100%;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.page-hero .search-box-wrap .search-box .search-input img {
+  height: 1.6rem;
+  margin-right: 0.5rem;
+  width: auto;
+  opacity: 0.8;
+}
+
+.page-hero .search-box-wrap .search-box .search-input input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--reading);
+  width: 100%;
+}
+
+.page-hero .search-box-wrap .search-box .filter-wrap {
+  position: relative;
+}
+
+.page-hero .search-box-wrap .search-box .filter-wrap .filter-btn {
+  text-align: left;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  min-width: 8rem;
+  border-left: 1px solid var(--dark);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+
+  height: 100%;
+}
+
+.page-hero .search-box-wrap .search-box .filter-wrap img {
+  margin: 0 1rem;
+}
+
+.page-hero .search-box-wrap .search-box .dropdown {
+  background-color: white;
+  width: 10rem;
+  position: absolute;
+  right: 0;
+  top: 5.2rem;
+  z-index: 10;
+
+  border: var(--border);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0;
+  text-align: left;
+  box-shadow: var(--box-shadow);
+}
+
+.page-hero .search-box-wrap .search-box .dropdown > p {
+  padding: 1rem 1.5rem;
+  color: var(--stroke);
+  cursor: pointer;
+}
+
+.page-hero .search-box-wrap .search-box .dropdown > p:hover {
+  background-color: var(--reading);
+  color: var(--white);
+}
+
+.page-hero .search-box-wrap .search-box .dropdown .sort-active {
+  color: var(--reading);
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 75em) {
+  .page-hero .search-box-wrap .search-box .dropdown {
+    top: 5.5rem;
+  }
+}

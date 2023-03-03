@@ -1,7 +1,6 @@
 import "../styles/pageHero.css";
 import video from "../assets/videos/hero.mp4";
-import chevron from "../../common/assets/arrow-up.svg";
-import searchIcon from "../../common/assets/search.svg";
+import SearchSort from "../../common/components/SearchSort";
 
 type PageHeroProps = {
   isShelf?: boolean;
@@ -34,29 +33,7 @@ function PageHero({ isShelf }: PageHeroProps) {
         </div>
       </div>
 
-      <div className="search-box-wrap">
-        <div className="search-box">
-          <div className="search-input">
-            {/* <div className="search-box"> */}
-            <label htmlFor="search" className="label">
-              <figure className="img-box">
-                <img src={searchIcon} alt="" className="img" />
-              </figure>
-            </label>
-            <input
-              placeholder="search"
-              type="text"
-              name="search"
-              id="search"
-              className="input"
-            />
-            {/* </div> */}
-          </div>
-          <div className="filter-wrap">
-            <p>Title</p> <img src={chevron} alt="" />
-          </div>
-        </div>
-      </div>
+      <SearchSort />
     </div>
   );
 }
