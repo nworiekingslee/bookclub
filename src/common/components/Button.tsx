@@ -1,7 +1,15 @@
 import "../styles/Button.css";
 
-function Button() {
-  return <button className="btn-reuse">Register</button>;
+interface ButtonProps {
+  onClick: () => void;
+}
+
+function Button({ onClick }: ButtonProps) {
+  return (
+    <button className="btn-reuse" onClick={onClick}>
+      Register
+    </button>
+  );
 }
 
 export default Button;
