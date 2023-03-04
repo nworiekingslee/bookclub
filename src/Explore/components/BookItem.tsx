@@ -1,19 +1,10 @@
 import BookActionBar from "../../common/components/BookActionBar";
 import Rate from "../../common/components/Rate";
+import { BookType } from "../../common/Types/Book.type";
 // import bookCover from "../assets/book-cover.png";
 
 type BookItemProps = {
-  book?: {
-    image: string;
-    title: string;
-    author: string;
-    desc: string;
-    category: string[];
-    rating: number;
-    myRate: null | number;
-    "total-ratings": number;
-    status: string | null;
-  };
+  book?: BookType;
 };
 
 function BookItem({ book }: BookItemProps) {

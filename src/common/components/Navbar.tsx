@@ -13,7 +13,7 @@ function Navbar() {
   }
 
   useEffect(() => {
-    console.log(_);
+    // console.log(_);
   });
 
   return (

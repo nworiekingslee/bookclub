@@ -1,22 +1,43 @@
 import { useState } from "react";
 import chevron from "../assets/arrow-up.svg";
 import searchIcon from "../assets/search.svg";
+import uuid from "react-uuid";
 import "../styles/SearchSort.css";
 
-export default function SearchSort() {
-  const [activeSortParam, setActiveSortParam] = useState("Title");
+type SearchSortProps = {
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  search: string;
+  filterList: string[];
+  filterParam: string;
+  setFilterParam: (param: string) => void;
+  handleSearch: () => void;
+};
+
+export default function SearchSort({
+  handleChange,
+  search,
+  filterList,
+  filterParam,
+  setFilterParam,
+  handleSearch,
+}: SearchSortProps) {
   const [isSortDropdown, setSortDropdown] = useState(false);
 
   const changeSortParam = (param: string) => {
-    setActiveSortParam(param);
+    setFilterParam(param);
     setSortDropdown(false);
   };
 
-  const sortParams = ["Title", "Author", "Genre"];
   return (
     <div className="search-box-wrap">
       <div className="search-box">
-        <div className="search-input">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSearch();
+          }}
+          className="search-input"
+        >
           <label htmlFor="search" className="label">
             <figure className="img-box">
               <img src={searchIcon} alt="" className="img" />
@@ -28,23 +49,27 @@ export default function SearchSort() {
             name="search"
             id="search"
             className="input"
+            value={search}
+            onChange={handleChange}
           />
-        </div>
+        </form>
         <div className="filter-wrap">
           <div
-            className="filter-btn"
+            className={`filter-btn ${isSortDropdown ? "active" : ""}`}
             onClick={() => {
-              setSortDropdown(true);
+              setSortDropdown((prev) => !prev);
             }}
           >
-            <p>{activeSortParam}</p> <img src={chevron} alt="" />
+            <p className="selected-sort-param">{filterParam}</p>{" "}
+            <img src={chevron} alt="" />
           </div>
           {isSortDropdown && (
-            <div className="dropdown">
-              {sortParams.map((item) => (
+            <div className="dropdown animate">
+              {filterList.map((item) => (
                 <p
+                  key={uuid()}
                   onClick={() => changeSortParam(item)}
-                  className={`${activeSortParam === item ? "sort-active" : ""}`}
+                  className={`${filterParam === item ? "sort-active" : ""}`}
                 >
                   {item}
                 </p>

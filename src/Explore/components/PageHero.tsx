@@ -4,9 +4,24 @@ import SearchSort from "../../common/components/SearchSort";
 
 type PageHeroProps = {
   isShelf?: boolean;
+  handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  search?: string;
+  filterList?: string[];
+  filterParam?: string;
+  setFilterParam?: (param: string) => void;
+  handleSearch?: () => void;
+  // Todo: search, hanldeChange, search, filterList, filterParam. setFilterParam shouldn't be optional
 };
 
-function PageHero({ isShelf }: PageHeroProps) {
+function PageHero({
+  isShelf,
+  search,
+  filterList,
+  filterParam,
+  setFilterParam,
+  handleChange,
+  handleSearch,
+}: PageHeroProps) {
   return (
     <div className={`${!isShelf ? "wrap-md" : "wrap-sm"} page-hero`}>
       {!isShelf && (
@@ -33,7 +48,14 @@ function PageHero({ isShelf }: PageHeroProps) {
         </div>
       </div>
 
-      <SearchSort />
+      <SearchSort
+        handleChange={(e) => handleChange && handleChange(e)}
+        search={search ? search : ""}
+        filterList={filterList ? filterList : []}
+        filterParam={filterParam ? filterParam : ""}
+        setFilterParam={(param) => setFilterParam && setFilterParam(param)}
+        handleSearch={() => handleSearch && handleSearch()}
+      />
     </div>
   );
 }
