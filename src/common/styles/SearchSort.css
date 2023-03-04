@@ -57,10 +57,9 @@
 
 .page-hero .search-box-wrap .search-box .filter-wrap .filter-btn {
   text-align: left;
-  padding: 0 0 0 1rem;
   font-size: 1.2rem;
-  width: 10rem;
-  border-left: 1px solid var(--dark);
+  padding: 1rem 0;
+  width: 12rem;
 
   display: flex;
   justify-content: space-between;
@@ -68,6 +67,11 @@
   cursor: pointer;
 
   height: 100%;
+}
+
+.page-hero .search-box-wrap .search-box .filter-wrap .filter-btn p {
+  border-left: 1px solid var(--dark);
+  padding: 0 0 0 1rem;
 }
 
 .page-hero .search-box-wrap .search-box .filter-wrap .filter-btn img {
@@ -90,7 +94,7 @@
 
 .page-hero .search-box-wrap .search-box .dropdown {
   background-color: white;
-  width: 10rem;
+  width: 12rem;
   position: absolute;
   right: 0;
   top: 4.5rem;
@@ -118,6 +122,10 @@
 .selected-sort-param {
   color: var(--reading);
   font-weight: bold;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media only screen and (max-width: 75em) {

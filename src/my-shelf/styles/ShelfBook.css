@@ -29,6 +29,7 @@
 .shelf-list-item .shelf-book-wrap > img {
   width: 11rem;
   height: auto;
+  align-self: flex-start;
 }
 
 .shelf-list-item .shelf-book-wrap .shelf-book-desc {

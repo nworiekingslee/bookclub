@@ -4,12 +4,15 @@ import PageHero from "./components/PageHero";
 import uuid from "react-uuid";
 import "./styles/bookGrid.css";
 import BookItem from "./components/BookItem";
-import { books as bookData } from "../common/books";
+// import { books as FETCHED } from "../common/books";
 import React, { useEffect, useState } from "react";
 import { BookType } from "../common/Types/Book.type";
+import axios from "axios";
 
 function Explore() {
-  const [books, setBooks] = useState<BookType[]>(bookData);
+  const [FETCHED, SETFETCHED] = useState<BookType[]>([]);
+  const [books, setBooks] = useState<BookType[]>([]);
+  const [loading, setLoading] = useState(true);
 
   // Filter & Search params
   const [searchParam, setSearchParam] = useState("");
@@ -25,13 +28,13 @@ function Explore() {
   const handleSearch = () => {
     if (activeSortParam === "Title") {
       setBooks(
-        bookData.filter((item) =>
+        FETCHED.filter((item) =>
           item?.title.toLowerCase().includes(searchParam.toLowerCase())
         )
       );
     } else if (activeSortParam === "Author") {
       setBooks(
-        bookData.filter((item) =>
+        FETCHED.filter((item) =>
           item?.author.toLowerCase().includes(searchParam.toLowerCase())
         )
       );
@@ -46,7 +49,7 @@ function Explore() {
         }
       };
 
-      bookData.forEach((book) =>
+      FETCHED.forEach((book) =>
         book?.genres.forEach((keyword) => {
           if (keyword.toLowerCase().includes(searchParam.toLowerCase())) {
             return addItem(book);
@@ -58,10 +61,30 @@ function Explore() {
     }
   };
 
+  const fetchUserBook = async () => {
+    setLoading(true);
+    await axios
+      .get("http://localhost:3030/user/books")
+      .then((response) => {
+        SETFETCHED(response.data); // Saving the resp data so that we can reset the data without any extra requests
+        setBooks(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+      .finally(() => setLoading(false));
+
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    fetchUserBook();
+  }, []);
+
   useEffect(() => {
     // Reset search query when the input field is empty
     if (searchParam.length === 0) {
-      setBooks(bookData);
+      setBooks(FETCHED);
     }
   }, [searchParam]);
 
@@ -69,6 +92,10 @@ function Explore() {
     // Make a search when the activeSortParam changes
     handleSearch();
   }, [activeSortParam]);
+
+  if (loading) {
+    return <div>Fetching all books</div>;
+  }
 
   return (
     <div>
