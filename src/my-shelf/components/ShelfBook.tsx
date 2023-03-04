@@ -1,10 +1,14 @@
 import BookActionBar from "../../common/components/BookActionBar";
 import Rate from "../../common/components/Rate";
-import bookCover from "../../Explore/assets/book-cover.png";
+import { BookType } from "../../common/Types/Book.type";
 import close from "../assets/close.svg";
 import "../styles/ShelfBook.css";
 
-function ShelfBook() {
+type ShelfBookProps = {
+  book: BookType;
+};
+
+function ShelfBook({ book }: ShelfBookProps) {
   return (
     <div className="shelf-list-item">
       <div>
@@ -12,11 +16,11 @@ function ShelfBook() {
           <img src={close} alt="" />
         </figure>
         <div className="shelf-book-wrap">
-          <img src={bookCover} alt="" />
+          <img src={book.image} alt="" />
           <div className="shelf-book-desc">
             <div>
-              <h3 className="title">Can’t Hurt Me</h3>
-              <p className="author">David Goggins</p>
+              <h3 className="title">{book.title}</h3>
+              <p className="author">By {book.author}</p>
             </div>
 
             <div>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import chevron from "../assets/arrow-up.svg";
 import searchIcon from "../assets/search.svg";
 import uuid from "react-uuid";
@@ -22,6 +22,7 @@ export default function SearchSort({
   handleSearch,
 }: SearchSortProps) {
   const [isSortDropdown, setSortDropdown] = useState(false);
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   const changeSortParam = (param: string) => {
     setFilterParam(param);
@@ -37,6 +38,7 @@ export default function SearchSort({
             handleSearch();
           }}
           className="search-input"
+          onClick={() => searchInputRef?.current?.focus()}
         >
           <label htmlFor="search" className="label">
             <figure className="img-box">
@@ -44,13 +46,15 @@ export default function SearchSort({
             </figure>
           </label>
           <input
-            placeholder="search"
+            ref={searchInputRef}
+            placeholder="Search"
             type="text"
             name="search"
             id="search"
             className="input"
             value={search}
             onChange={handleChange}
+            autoFocus
           />
         </form>
         <div className="filter-wrap">
