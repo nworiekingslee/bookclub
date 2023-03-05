@@ -5,11 +5,11 @@ import MyShelf from "./my-shelf";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { setupWorker } from "msw";
 
-if (process.env.NODE_ENV === "development") {
+// if (process.env.NODE_ENV === "development") {
   const { handlers } = require("./common/mocks/handlers");
   const worker = setupWorker(...handlers);
   worker.start();
-}
+// }
 
 function App() {
   return (
