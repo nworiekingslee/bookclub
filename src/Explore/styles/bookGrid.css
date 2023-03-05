@@ -95,3 +95,9 @@
   max-width: 12rem;
   margin: 0 auto;
 }
+
+/* bookwrapper */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
