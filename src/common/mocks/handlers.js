@@ -1,7 +1,7 @@
 import { rest } from "msw";
-import { books as booksData } from "../books";
+import { books } from "../books";
 
-const userBooks = booksData.filter(
+const userBooks = books.filter(
   (book) =>
     book.status === "to-read" ||
     book.status === "reading" ||
@@ -10,7 +10,7 @@ const userBooks = booksData.filter(
 
 export const handlers = [
   rest.get("http://localhost:3030/allbooks", (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json([...booksData]));
+    return res(ctx.status(200), ctx.json([...books]));
   }),
 
   rest.get("http://localhost:3030/user/books", (req, res, ctx) => {

@@ -4,7 +4,7 @@ import { BookType } from "../../common/Types/Book.type";
 // import bookCover from "../assets/book-cover.png";
 
 type BookItemProps = {
-  book?: BookType;
+  book: BookType;
 };
 
 function BookItem({ book }: BookItemProps) {
@@ -19,9 +19,25 @@ function BookItem({ book }: BookItemProps) {
             </div>
           </div>
         </div>
-        <img src={book?.image} alt="" />
+        <img
+          src={book?.image}
+          alt=""
+          className={`${book.status ? "border" : ""}`}
+          style={{
+            borderColor:
+              book.status === "completed"
+                ? "#01625D"
+                : book.status === "reading"
+                ? "#382110"
+                : book.status === "to-read"
+                ? "#14181F"
+                : "Want to read"
+                ? "#000"
+                : "",
+          }}
+        />
       </li>
-      <BookActionBar />
+      <BookActionBar type="no-top" status={book.status} />
     </div>
   );
 }

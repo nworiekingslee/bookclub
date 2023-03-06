@@ -28,7 +28,7 @@ function ShelfBook({ book }: ShelfBookProps) {
                 <p>Your Review</p>
                 <Rate variant="big" color="dark" />
               </div>
-              <BookActionBar />
+              <BookActionBar status={book.status} />
             </div>
           </div>
         </div>

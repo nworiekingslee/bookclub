@@ -64,7 +64,7 @@ function Explore() {
   const fetchUserBook = async () => {
     setLoading(true);
     await axios
-      .get("http://localhost:3030/user/books")
+      .get("http://localhost:3030/allbooks")
       .then((response) => {
         SETFETCHED(response.data); // Saving the resp data so that we can reset the data without any extra requests
         setBooks(response.data);

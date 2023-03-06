@@ -9,7 +9,7 @@ export const books = [
     rating: 4,
     myRate: null,
     "total-ratings": 120,
-    status: "reading",
+    status: null,
   },
   {
     image:
@@ -34,7 +34,7 @@ export const books = [
     rating: 4.2,
     myRate: null,
     "total-ratings": 13,
-    status: "to-read",
+    status: null,
   },
   {
     image:
@@ -46,7 +46,7 @@ export const books = [
     rating: 5,
     myRate: null,
     "total-ratings": 200,
-    status: "reading",
+    status: null,
   },
   {
     image:
@@ -70,7 +70,7 @@ export const books = [
     rating: 4,
     myRate: null,
     "total-ratings": 200,
-    status: "reading",
+    status: null,
   },
   {
     image:
@@ -82,7 +82,7 @@ export const books = [
     rating: 5,
     myRate: null,
     "total-ratings": 200,
-    status: "reading",
+    status: "to-read",
   },
   {
     image:
@@ -94,7 +94,7 @@ export const books = [
     rating: 5,
     myRate: null,
     "total-ratings": 200,
-    status: "reading",
+    status: "to-read",
   },
   {
     image:
@@ -106,7 +106,7 @@ export const books = [
     rating: 5,
     myRate: null,
     "total-ratings": 200,
-    status: "reading",
+    status: null,
   },
   {
     image:
@@ -118,7 +118,7 @@ export const books = [
     rating: 2.5,
     myRate: null,
     "total-ratings": 200,
-    status: "reading",
+    status: null,
   },
   {
     image:

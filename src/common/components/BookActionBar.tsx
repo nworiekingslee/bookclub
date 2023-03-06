@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from "react";
 import chevron from "../assets/arrow-up-light.svg";
 import completed from "../assets/completed.svg";
 import addToShelf from "../assets/add-to-shelf.svg";
@@ -8,18 +9,25 @@ import "../styles/BookActionBar.css";
 type SortOption = {
   option: string;
   icon: string | null;
-}
+};
 
-export default function BookActionBar(): JSX.Element {
+type BookActionBarProps = {
+  status: string | null;
+  type?: string;
+};
+
+export default function BookActionBar({
+  status,
+  type,
+}: BookActionBarProps): JSX.Element {
   const [activeSortParam, setActiveSortParam] = useState<SortOption>({
     option: "Want to read",
-    icon: null
+    icon: null,
   });
   const [isSortDropdown, setSortDropdown] = useState(false);
-  const [isChevronRotated, setChevronRotation] = useState(false);
 
   const sortParams: SortOption[] = [
-    { option: "Add to shelf", icon: addToShelf },
+    { option: "To-read", icon: addToShelf },
     { option: "Reading", icon: reading },
     { option: "Completed", icon: completed },
   ];
@@ -31,31 +39,66 @@ export default function BookActionBar(): JSX.Element {
 
   const toggleSortDropdown = () => {
     setSortDropdown(!isSortDropdown);
-    setChevronRotation(!isChevronRotated);
   };
+
+  useEffect(() => {
+    if (status) {
+      const bookStatus = sortParams.find(
+        (item) => item.option.toLowerCase() === status.toLowerCase()
+      );
+
+      setActiveSortParam(
+        bookStatus
+          ? bookStatus
+          : {
+              option: "Want to read",
+              icon: null,
+            }
+      );
+    }
+  }, [status]);
 
   return (
     <div
-      className="box-wrap" style={{ 
-        border: activeSortParam.option === "Completed" ? "1px solid #01625D" 
-          : activeSortParam.option === "Reading" ? "1px solid #382110" 
-          : activeSortParam.option === "Add to shelf" ? "1px solid #14181F" 
-          : "none" 
-        }}
+      className={`box-wrap ${type}`}
+      style={{
+        borderColor:
+          activeSortParam.option === "Completed"
+            ? "#01625D"
+            : activeSortParam.option === "Reading"
+            ? "#382110"
+            : activeSortParam.option === "To-read"
+            ? "#14181F"
+            : "none",
+      }}
     >
       <div
         className="sort-param"
         style={{
-          backgroundColor: activeSortParam.option === "Want to read" ? "black" : "",
-          color: activeSortParam.option === "Completed" ? "#01625D" 
-            : activeSortParam.option === "Reading" ? "#382110" 
-            : activeSortParam.option === "Add to shelf" ? "#14181F" 
-            : "Want to read" ? "#FFFFFF" : "",
-          fontWeight: 'bold',
+          backgroundColor:
+            activeSortParam.option === "Want to read" ? "#14181f" : "",
+          color:
+            activeSortParam.option === "Completed"
+              ? "#01625D"
+              : activeSortParam.option === "Reading"
+              ? "#382110"
+              : activeSortParam.option === "To-read"
+              ? "#14181F"
+              : "Want to read"
+              ? "#FFFFFF"
+              : "",
+          fontWeight: "bold",
         }}
         onClick={toggleSortDropdown}
       >
-        {activeSortParam.icon && <img src={activeSortParam.icon} alt="" style={{ width: 30 }} />}
+        {activeSortParam.icon && (
+          <img
+            className="dropdown-img"
+            src={activeSortParam.icon}
+            alt=""
+            style={{ width: 30 }}
+          />
+        )}
         <span>{activeSortParam.option}</span>
       </div>
       {isSortDropdown && (
@@ -63,21 +106,24 @@ export default function BookActionBar(): JSX.Element {
           {sortParams.map((item) => (
             <div
               key={item.option}
-              className={`${activeSortParam.option === item.option ? "sort-active" : ""}`}
+              className={`${
+                activeSortParam.option === item.option ? "sort-active" : ""
+              }`}
               onClick={() => changeSortParam(item)}
               id="opt"
             >
-              {item.icon && <img src={item.icon} alt="" style={{ width: 30 }} />}
+              {item.icon && (
+                <img src={item.icon} alt="" style={{ width: 30 }} />
+              )}
               <span>{item.option}</span>
             </div>
           ))}
         </div>
       )}
       <button
-        className={`btn ${isChevronRotated ? "rotated" : ""}`}
+        className={`btn ${isSortDropdown ? "rotated" : ""}`}
         onClick={() => {
           toggleSortDropdown();
-          setChevronRotation(!isChevronRotated);
         }}
         style={{
           backgroundColor:
@@ -85,17 +131,12 @@ export default function BookActionBar(): JSX.Element {
               ? "#01625D"
               : activeSortParam.option === "Reading"
               ? "#382110"
-              : activeSortParam.option === "Add to shelf"
+              : activeSortParam.option === "To-read"
               ? "#14181F"
               : "",
         }}
       >
-        <img
-          src={chevron}
-          alt=""
-          className="chev"
-          style={{ width: 15, transform: isChevronRotated ? "rotate(180deg)" : "rotate(0deg)" }}
-        />
+        <img src={chevron} alt="" className="chev" />
       </button>
     </div>
   );

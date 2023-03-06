@@ -25,6 +25,26 @@
   }
 }
 
+.booklist-section .booklist-wrapper .wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.booklist-section .booklist-wrapper .wrapper li {
+  flex-grow: 1;
+}
+
+.booklist-section .booklist-wrapper .wrapper li > img {
+  height: 100%;
+}
+
+.booklist-section .booklist-wrapper .wrapper li > img.border {
+  height: 100%;
+  border: 1.5px solid var(--dark);
+  border-bottom: none !important;
+}
+
 .booklist-section .booklist-wrapper .book-item {
   height: auto;
   display: flex;
@@ -34,6 +54,8 @@
   position: relative;
   overflow: hidden;
   cursor: pointer;
+
+  /* border: 1.5 solid var(--dark) !important; */
 }
 
 .booklist-section .booklist-wrapper .book-item > img {
@@ -72,7 +94,7 @@
   width: 100%;
   padding: 1rem;
   position: absolute;
-  bottom: 5rem;
+  bottom: 1rem;
 }
 
 .booklist-section
