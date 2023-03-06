@@ -9,18 +9,20 @@ type BookItemProps = {
 
 function BookItem({ book }: BookItemProps) {
   return (
-    <li className="book-item">
-      <div className="book-hover-overlay">
-        <div className="overlay-content">
-          <p>Rate this book</p>
-          <div className="star-wrap">
-            <Rate />
+    <div className="wrapper">
+      <li className="book-item">
+        <div className="book-hover-overlay">
+          <div className="overlay-content">
+            <p>Rate this book</p>
+            <div className="star-wrap">
+              <Rate />
+            </div>
           </div>
         </div>
-      </div>
-      <img src={book?.image} alt="" />
+        <img src={book?.image} alt="" />
+      </li>
       <BookActionBar />
-    </li>
+    </div>
   );
 }
 
