@@ -1,6 +1,7 @@
 import BookActionBar from "../../common/components/BookActionBar";
 import Rate from "../../common/components/Rate";
 import { BookType } from "../../common/Types/Book.type";
+import starFilledWhite from "../../common/assets/star-filled-light.svg";
 // import bookCover from "../assets/book-cover.png";
 
 type BookItemProps = {
@@ -15,7 +16,7 @@ function BookItem({ book }: BookItemProps) {
           <div className="overlay-content">
             <p>Rate this book</p>
             <div className="star-wrap">
-              <Rate />
+              <Rate rating={0} variant="small" color="dark" filledColor={starFilledWhite} />
             </div>
           </div>
         </div>

@@ -3,6 +3,7 @@ import Rate from "../../common/components/Rate";
 import { BookType } from "../../common/Types/Book.type";
 import close from "../assets/close.svg";
 import "../styles/ShelfBook.css";
+import starFilledYellow from "../../common/assets/star-filled-yellow.svg";
 
 type ShelfBookProps = {
   book: BookType;
@@ -26,7 +27,7 @@ function ShelfBook({ book }: ShelfBookProps) {
             <div>
               <div className="review-wrap">
                 <p>Your Review</p>
-                <Rate variant="big" color="dark" />
+                <Rate rating={0} variant="big" color="light" filledColor={starFilledYellow} />
               </div>
               <BookActionBar status={book.status} />
             </div>

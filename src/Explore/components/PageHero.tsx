@@ -2,6 +2,7 @@ import "../styles/pageHero.css";
 import video from "../assets/videos/hero.mp4";
 import SearchSort from "../../common/components/SearchSort";
 
+
 type PageHeroProps = {
   isShelf?: boolean;
   handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
