@@ -8,31 +8,31 @@ import BookItem from "./components/BookItem";
 import React, { useEffect, useState } from "react";
 import { BookType } from "../common/Types/Book.type";
 import axios from "axios";
+import Pagination from "../common/components/Pagination"; // import the Pagination component
 
-function Explore() {
+const Explore: React.FC = () => {
   const [FETCHED, SETFETCHED] = useState<BookType[]>([]);
   const [books, setBooks] = useState<BookType[]>([]);
   const [loading, setLoading] = useState(true);
+  const [searchParam, setSearchParam] = useState('');
+  const [activeSortParam, setActiveSortParam] = useState('Title');
+  const [currentPage, setCurrentPage] = useState(1);
+  const ITEMS_PER_PAGE = 5; // number of books displayed per page
 
-  // Filter & Search params
-  const [searchParam, setSearchParam] = useState("");
-  const [activeSortParam, setActiveSortParam] = useState("Title");
-  // Filter & Search params ends here
-
-  const sortParams = ["Title", "Author", "Genre"];
+  const sortParams = ['Title', 'Author', 'Genre'];
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchParam(e.target.value);
   };
 
   const handleSearch = () => {
-    if (activeSortParam === "Title") {
+    if (activeSortParam === 'Title') {
       setBooks(
         FETCHED.filter((item) =>
           item?.title.toLowerCase().includes(searchParam.toLowerCase())
         )
       );
-    } else if (activeSortParam === "Author") {
+    } else if (activeSortParam === 'Author') {
       setBooks(
         FETCHED.filter((item) =>
           item?.author.toLowerCase().includes(searchParam.toLowerCase())
@@ -59,14 +59,15 @@ function Explore() {
 
       setBooks(newData);
     }
+    setCurrentPage(1); // reset to first page after searching
   };
 
   const fetchUserBook = async () => {
     setLoading(true);
     await axios
-      .get("http://localhost:3030/allbooks")
+      .get('http://localhost:3030/allbooks')
       .then((response) => {
-        SETFETCHED(response.data); // Saving the resp data so that we can reset the data without any extra requests
+        SETFETCHED(response.data);
         setBooks(response.data);
       })
       .catch((error) => {
@@ -82,20 +83,22 @@ function Explore() {
   }, []);
 
   useEffect(() => {
-    // Reset search query when the input field is empty
     if (searchParam.length === 0) {
       setBooks(FETCHED);
     }
   }, [searchParam]);
 
   useEffect(() => {
-    // Make a search when the activeSortParam changes
     handleSearch();
   }, [activeSortParam]);
+
+  const currentBooks = books.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(books.length / ITEMS_PER_PAGE);
 
   if (loading) {
     return <div>Fetching all books</div>;
   }
+
 
   return (
     <div>
@@ -110,11 +113,16 @@ function Explore() {
       />
       <div className="booklist-section">
         <ol className="booklist-wrapper">
-          {books.map((book) => (
+          {currentBooks.map((book) => (
             <BookItem key={uuid()} book={book} />
           ))}
         </ol>
       </div>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={(pageNumber: React.SetStateAction<number>) => setCurrentPage(pageNumber)}
+      />
     </div>
   );
 }
