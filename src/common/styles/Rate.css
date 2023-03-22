@@ -6,7 +6,8 @@
   margin-top: 0.5rem;
 }
 
-.rating-component.small {
+.rating-component.small img {
+  height: 2rem;
 }
 
 .rating-component.big img {
