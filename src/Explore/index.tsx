@@ -17,7 +17,7 @@ const Explore: React.FC = () => {
   const [searchParam, setSearchParam] = useState('');
   const [activeSortParam, setActiveSortParam] = useState('Title');
   const [currentPage, setCurrentPage] = useState(1);
-  const ITEMS_PER_PAGE = 5; // number of books displayed per page
+  const ITEMS_PER_PAGE = 10; // number of books displayed per page
 
   const sortParams = ['Title', 'Author', 'Genre'];
 
