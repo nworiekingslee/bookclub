@@ -3,6 +3,7 @@ import Button from "./Button";
 import { useNavigate } from "react-router";
 import { useSearchParams } from "react-router-dom";
 import { useEffect } from "react";
+import BookClubLogo from '../assets/BookClub-logo.svg'
 
 function Navbar() {
   const navigate = useNavigate();
@@ -18,9 +19,10 @@ function Navbar() {
 
   return (
     <div className="navbar">
-      {/* <img src={} alt="logo" /> */}
       <ul>
-        <p onClick={() => navigate("/")}>LOGO</p>
+        <li>
+        <img src={BookClubLogo} alt="bookclub logo" onClick={() => navigate("/")} />
+        </li>
         <li onClick={() => navigate("/explore")}>Explore</li>
         <li onClick={() => navigate("/shelf")}>Myshelf</li>
         <li>About App</li>

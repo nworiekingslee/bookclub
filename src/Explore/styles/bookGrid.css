@@ -28,7 +28,7 @@
 .booklist-section .booklist-wrapper .wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  height: 100%;
 }
 
 .booklist-section .booklist-wrapper .wrapper li {
@@ -46,7 +46,7 @@
 }
 
 .booklist-section .booklist-wrapper .book-item {
-  height: auto;
+  height: 100%;
   display: flex;
   flex-direction: column;
   border: none;
@@ -122,4 +122,10 @@
 .wrapper {
   display: flex;
   flex-direction: column;
+}
+
+/* img */
+.book-img {
+  height: 100% !important;
+  width: 100%;
 }
